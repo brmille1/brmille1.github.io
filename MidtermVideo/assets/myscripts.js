@@ -18,7 +18,7 @@ function autofillYears(){
   }
   else {
     //Make boxes empty if starting_year is null
-    document.getElementById("year2").placeholder = ""
+    document.getElementById("year2").value = ""
     document.getElementById("year3").value = ""
     document.getElementById("year4").value = ""
   }
