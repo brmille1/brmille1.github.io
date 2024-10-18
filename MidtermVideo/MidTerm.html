@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Amortization Calculator</title>
+	<link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body>
+    <h2>Loan and Amortization Calculator</h2>
+    <form id="loanForm">
+      <table>
+        <tr>
+          <th>Borrowing Year</th>
+          <th>Loan Amount</th>
+        </tr>
+        <tr>
+          <td>
+            <input type="number" id="year1" onkeyup="autofillYears()" required/>
+          </td>
+          <td>
+            <input type="number" id="loan1" required>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="number" id="year2" readonly required/>
+          </td>
+          <td>
+            <input type="number" id="loan2" required>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="number" id="year3" readonly required/>
+          </td>
+          <td>
+            <input type="number" id="loan3" required>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="number" id="year4" readonly required/>
+          </td>
+          <td>
+            <input type="number" id="loan4" required>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <button type="button" onclick="calculateDebt()">Calculate</button>
+    </form>
+    <h3>Amortization  Schedule</h3>
+    <table>
+      <tr>
+        <th>Year</th>
+        <th>Payment</th>
+        <th>Interest</th>
+        <th>Principal</th>
+        <th>Remaining Debt</th>
+      </tr>
+      <tr>
+        <td>
+          <p>Year 1</p>
+        </td>
+        <td>
+          <p id="payment1"></p>
+        </td>
+        <td>
+          <p id="interest1"></p>
+        </td>
+        <td>
+          <p id="principal1"></p>
+        </td>
+        <td>
+          <p id="remainingDebt1"/></label>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p>Year 2</p>
+        </td>
+        <td>
+          <p id="payment2"></p>
+        </td>
+        <td>
+          <p id="interest2"></p>
+        </td>
+        <td>
+          <p id="principal2"></p>
+        </td>
+        <td>
+          <p id="remainingDebt2"/></label>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p>Year 3</p>
+        </td>
+        <td>
+          <p id="payment3"></p>
+        </td>
+        <td>
+          <p id="interest3"></p>
+        </td>
+        <td>
+          <p id="principal3"></p>
+        </td>
+        <td>
+          <p id="remainingDebt3"/></label>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p>Year 4</p>
+        </td>
+        <td>
+          <p id="payment4"></p>
+        </td>
+        <td>
+          <p id="interest4"></p>
+        </td>
+        <td>
+          <p id="principal4"></p>
+        </td>
+        <td>
+          <p id="remainingDebt4"/></label>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p>Year 5</p>
+        </td>
+        <td>
+          <p id="payment5"></p>
+        </td>
+        <td>
+          <p id="interest5"></p>
+        </td>
+        <td>
+          <p id="principal5"></p>
+        </td>
+        <td>
+          <p id="remainingDebt5"/></label>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p>Year 6</p>
+        </td>
+        <td>
+          <p id="payment6"></p>
+        </td>
+        <td>
+          <p id="interest6"></p>
+        </td>
+        <td>
+          <p id="principal6"></p>
+        </td>
+        <td>
+          <p id="remainingDebt6"/></label>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p>Year 7</p>
+        </td>
+        <td>
+          <p id="payment7"></p>
+        </td>
+        <td>
+          <p id="interest7"></p>
+        </td>
+        <td>
+          <p id="principal7"></p>
+        </td>
+        <td>
+          <p id="remainingDebt7"/></label>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p>Year 8</p>
+        </td>
+        <td>
+          <p id="payment8"></p>
+        </td>
+        <td>
+          <p id="interest8"></p>
+        </td>
+        <td>
+          <p id="principal8"></p>
+        </td>
+        <td>
+          <p id="remainingDebt8"/></label>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p>Year 9</p>
+        </td>
+        <td>
+          <p id="payment9"></p>
+        </td>
+        <td>
+          <p id="interest9"></p>
+        </td>
+        <td>
+          <p id="principal9"></p>
+        </td>
+        <td>
+          <p id="remainingDebt9"/></label>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p>Year 10</p>
+        </td>
+        <td>
+          <p id="payment10"></p>
+        </td>
+        <td>
+          <p id="interest10"></p>
+        </td>
+        <td>
+          <p id="principal10"></p>
+        </td>
+        <td>
+          <p id="remainingDebt10"/></label>
+        </td>
+      </tr>
+    </table>
+	<script src="assets/myscripts.js"></script>
+  </body>
+</html>
