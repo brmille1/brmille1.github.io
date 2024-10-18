@@ -12,7 +12,7 @@ function autofillYears(){
   
   if(starting_year) {
     //Set values of other year boxes based on the first year
-    document.getElementById("year2").placeholder = starting_year + 1
+    document.getElementById("year2").value = starting_year + 1
     document.getElementById("year3").value = starting_year + 2
     document.getElementById("year4").value = starting_year + 3
   }
