@@ -49,7 +49,7 @@ const fetchCat = new Promise((resolve, reject) => {
 fetchCat
   .then(imgURL => {
     const catDiv = document.getElementById("cat-card");
-    catDiv.innerHTML = `<img src="${imgURL}" alt="Random Cat Image" />`;
+    catDiv.innerHTML = `<img src="${imgURL}" width="200" alt="Random Cat Image" />`;
   })
   .catch(error => {
     console.error("Promise error:", error);
