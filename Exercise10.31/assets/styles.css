@@ -1,0 +1,13 @@
+#cat {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  heigh: 100vh;
+}
+
+#cat img {
+  max-width: 50vw;
+  max-height: 50vh;
+  width: auto;
+  height: auto;
+}
