@@ -20,12 +20,33 @@ window.addEventListener('DOMContentLoaded', event => {
         tableBody.appendChild(tr);
     });
 
+    //Get HTML element from DOM
+    const employeeCard = document.querySelector("#employee-info-card")
+
+    //Get a random person from the table
+    let randNum = Math.floor(Math.random() * ((tableData.length - 1) - 0))
+    console.log("Table's Length: " + tableData.length)
+    console.log("Random Number: " + randNum)
+
+    const randomEmployee = tableData[randNum]
+
+    //Show person's info by making a table row and filling it with table data elements
+    employeeCard.innerHTML = `
+            <p>Name: ${randomEmployee.name}</p>
+            <p>Position: ${randomEmployee.position}</p>
+            <p>Office Location: ${randomEmployee.office}</p>
+            <p>Age: ${randomEmployee.age}</p>
+            <p>Start Date: ${randomEmployee.startDate}</p>
+            <p>Salary: ${randomEmployee.salary}</p>
+    `
+
     // Simple-DataTables
     // https://github.com/fiduswriter/Simple-DataTables/wiki
     const datatablesSimple = document.getElementById('datatablesSimple');
     if (datatablesSimple) {
         new simpleDatatables.DataTable(datatablesSimple);
     }
+
 });
 
 //Array of objects for making table
