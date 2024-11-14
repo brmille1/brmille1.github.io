@@ -129,7 +129,14 @@
                                 <div class="card bg-warning text-white mb-4">
                                     <div class="card-body">Warning Card</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
+                                        <form id="ageRangeForm" class="small text-white">
+                                            <label for="minAge">Min Age:</label>
+                                            <input type="number" id="minAge" name="minAge" class="form-control form-control-sm" placeholder="Min Age" required>
+                                            <label for="maxAge">Max Age:</label>
+                                            <input type="number" id="maxAge" name="maxAge" class="form-control form-control-sm" placeholder="Max Age" required>
+                                            <button type="submit" class="btn btn-sm btn-light mt-2">Calculate</button>
+                                            <div id="averageSalary" class="mt-2"></div>
+                                        </form>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>

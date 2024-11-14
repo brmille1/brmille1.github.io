@@ -1,25 +1,14 @@
 window.addEventListener('DOMContentLoaded', event => {
-    // Simple-DataTables
-    // https://github.com/fiduswriter/Simple-DataTables/wiki
 
-    const datatablesSimple = document.getElementById('datatablesSimple');
-    if (datatablesSimple) {
-        new simpleDatatables.DataTable(datatablesSimple);
-    }
-});
-
-//Run code after DOM loads
-window.addEventListener('DOMContentLoaded', event => {
-
+    //Get tbody object from document
     const tableBody = document.querySelector("#datatablesSimple tbody");
 
     // Clear existing rows
     tableBody.innerHTML = "";
 
-    // Populate the table with data
+    // Populate the table with data from tableData array with .forEach() function
     tableData.forEach(row => {
         const tr = document.createElement("tr");
-        //Uses back tick ` to allow ${} additions
         tr.innerHTML = `
             <td>${row.name}</td>
             <td>${row.position}</td>
@@ -31,9 +20,15 @@ window.addEventListener('DOMContentLoaded', event => {
         tableBody.appendChild(tr);
     });
 
+    // Simple-DataTables
+    // https://github.com/fiduswriter/Simple-DataTables/wiki
+    const datatablesSimple = document.getElementById('datatablesSimple');
+    if (datatablesSimple) {
+        new simpleDatatables.DataTable(datatablesSimple);
+    }
 });
 
-//Array of objects for data
+//Array of objects for making table
 const tableData = [
     { name: "Tiger Nixon", position: "System Architect", office: "Edinburgh", age: 61, startDate: "2011/04/25", salary: "$320,800" },
     { name: "Garrett Winters", position: "Accountant", office: "Tokyo", age: 63, startDate: "2011/07/25", salary: "$170,750" },
@@ -96,28 +91,37 @@ const tableData = [
 
 document.getElementById("ageRangeForm").addEventListener("submit", function (event) {
     event.preventDefault();
+
+    //Grab data from input tags, parse into int because HTML values are strings
     const minAge = parseInt(document.getElementById("minAge").value, 10);
     const maxAge = parseInt(document.getElementById("maxAge").value, 10);
 
+    //Make sure inputs are not  non-numbers
     if (isNaN(minAge) || isNaN(maxAge)) {
         alert("Please enter valid age values.");
         return;
     }
 
+    //Make a new array and the go through tableData, setting the new array's value to rows with ages between min and max ages with the .filter() function
     const filteredData = tableData.filter(row => row.age >= minAge && row.age <= maxAge);
     const entryCount = filteredData.length;
 
+    //Check if the new array has no elements
     if (entryCount === 0) {
         document.getElementById("averageSalary").textContent = "No matching data found.";
         return;
     }
 
+    //Use .reduce() function on filteredData to go through each row
     const totalSalary = filteredData.reduce((sum, row) => {
+        //Add row's salary to sum; removing $ and , from the string and then parsing it into a float
         return sum + parseFloat(row.salary.replace(/[$,]/g, ""));
     }, 0);
 
+    //Make a new variable and use .toFixed() to parse it into a string to 2nd decimal value
     const averageSalary = (totalSalary / entryCount).toFixed(2);
 
+    //Set HTML element's textContent to result
     document.getElementById("averageSalary").textContent = 
         `Number of Entries: ${entryCount}, Average Salary: $${averageSalary}`;
 });
