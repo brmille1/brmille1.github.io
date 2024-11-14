@@ -8,6 +8,7 @@ window.addEventListener('DOMContentLoaded', event => {
     }
 });
 
+//Run code after DOM loads
 window.addEventListener('DOMContentLoaded', event => {
 
     const tableBody = document.querySelector("#datatablesSimple tbody");
@@ -18,6 +19,7 @@ window.addEventListener('DOMContentLoaded', event => {
     // Populate the table with data
     tableData.forEach(row => {
         const tr = document.createElement("tr");
+        //Uses back tick ` to allow ${} additions
         tr.innerHTML = `
             <td>${row.name}</td>
             <td>${row.position}</td>
@@ -31,7 +33,7 @@ window.addEventListener('DOMContentLoaded', event => {
 
 });
 
-//Array for data
+//Array of objects for data
 const tableData = [
     { name: "Tiger Nixon", position: "System Architect", office: "Edinburgh", age: 61, startDate: "2011/04/25", salary: "$320,800" },
     { name: "Garrett Winters", position: "Accountant", office: "Tokyo", age: 63, startDate: "2011/07/25", salary: "$170,750" },
